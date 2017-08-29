@@ -1,0 +1,38 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0302 
+header_name {.h} 
+code_name {.cxx}
+decl {\#include <stdlib.h>} {private local
+} 
+
+decl {\#include <stdio.h>} {private local
+} 
+
+decl {\#include "func.c"} {private local
+} 
+
+Function {funcbuttonclick()} {open
+} {
+  code {printf( "This is a test of clicked button!  ");
+printf( "Integer: %d\\n " , integerinc++ );} {}
+} 
+
+Function {win1()} {open
+} {
+  Fl_Window {} {open
+    xywh {64 581 525 300} type Double resizable visible
+  } {
+    Fl_Button {} {
+      label {Click Me Button !}
+      callback {funcbuttonclick();} selected
+      xywh {25 25 150 65} resizable
+    }
+  }
+  code {w->show();} {}
+} 
+
+Function {main()} {open return_type int
+} {
+  code {printf("Hello, World!\\n");  win1(); 
+ Fl::run();} {}
+} 
